@@ -11,22 +11,27 @@ const SideNav = (props) => {
         icon="labeled"
         inverted
         onHide={props.hide}
-        visible={props.visible}
+        visible={false}
         width="thin"
       >
           <Menu.Item as='a'>
               <Icon name='home' />
               Home
-            </Menu.Item>
-            <Menu.Item as='a'>
+        </Menu.Item>
+        <Menu.Item as='a'>
               <Icon name='calendar alternate' />
               Games
-            </Menu.Item>
-            <Menu.Item as='a'>
+        </Menu.Item>
+        <Menu.Item as='a'>
               <Icon name='trophy' />
               Tips
-            </Menu.Item>
+        </Menu.Item>
       </Sidebar>
+      <Sidebar.Pusher>
+            <Segment basic>
+              {props.children}
+            </Segment>
+          </Sidebar.Pusher>
     </Sidebar.Pushable>
   );
 };

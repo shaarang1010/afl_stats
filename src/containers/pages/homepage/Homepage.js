@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import { Container, Grid, Image, Popup } from "semantic-ui-react";
+import { Grid, Image, Popup } from "semantic-ui-react";
 import ModalWindow from "../../../components/Modal/Modal";
+import { Link } from 'react-router-dom';
+import HOC from '../../hoc/Hoc';
 
 import axios from "axios";
 
@@ -32,12 +34,15 @@ const Homepage = (props) => {
                 key={team.name}
                 header={team.name}
                 trigger={
+                  <Link to={`/team/${team.name}/${team.id}`}> 
                   <Image
+                    as='a'
                     src={`${BASE_URL}` + team.logo}
                     size="tiny"
                     key={team.id}
                     rounded={true}
                   />
+                  </Link>
                 }
               />
             </Grid.Column>
@@ -45,7 +50,7 @@ const Homepage = (props) => {
         })
       : null;
   return (
-    <Container>
+    <HOC>
       <Grid.Row>
         <Grid.Column width={12}>
           <ModalWindow
@@ -61,7 +66,7 @@ const Homepage = (props) => {
           </ModalWindow>
         </Grid.Column>
       </Grid.Row>
-    </Container>
+    </HOC>
   );
 };
 

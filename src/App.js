@@ -1,12 +1,14 @@
 import React from 'react';
 
-import Homepage from './containers/pages/homepage/Homepage';
+import { Container } from 'semantic-ui-react';
+
+import Routes from './routes/Routes';
 
 function App() {
   return (
-    <div>
-      <Homepage />
-    </div>
+    <Container>
+      <Routes />      
+    </Container>
   );
 }
 
