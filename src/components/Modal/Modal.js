@@ -20,7 +20,7 @@ const ModalWindow = (props) => {
           color="red"
           onClick={props.close}
           icon="cancel"
-          content="cancel"
+          content="Cancel"
         />
         <Button
           color="green"
