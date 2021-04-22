@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import HOC from "../../hoc/Hoc";
 import { Grid, Image, Icon, Header } from "semantic-ui-react";
-import Navbar from "../../../components/Menu/Navbar";
 
 import TableComponent from "../../../components/Table/Table";
 
@@ -23,6 +22,8 @@ const TeamPage = (props) => {
     } = props;
     const BASE_URL = process.env.REACT_APP_API_URL;
     setTeamID(Number(params.id));
+    localStorage.removeItem('team_id');
+    localStorage.setItem('team_id', params.id);
     setTeamName(params.teamName.replace("%20", " "));
     axios
       .get(`${BASE_URL}/?q=games;year=${props.year};complete=100`, {})
@@ -60,6 +61,8 @@ const TeamPage = (props) => {
                     ? "Bulldogs"
                     : game.hteam === "Brisbane Lions"
                     ? "Brisbane"
+                    : game.hteam === "Greater Western Sydney"
+                    ? "Giants"
                     : game.hteam.split(" ").join("")
                 }.jpg`}
                 avatar
@@ -73,6 +76,8 @@ const TeamPage = (props) => {
                     ? "Bulldogs"
                     : game.ateam === "Brisbane Lions"
                     ? "Brisbane"
+                    : game.ateam === "Greater Western Sydney"
+                    ? "Giants"
                     : game.ateam.split(" ").join("")
                 }.jpg`}
                 avatar
@@ -98,7 +103,6 @@ const TeamPage = (props) => {
     <HOC>
       <Grid.Row>
         <Grid.Column width={12}>
-          <Navbar menuItems={menuItems} team={teamName} />
           <Header as="h2">
             <Icon name="football ball" />
             <Header.Content>Games Played</Header.Content>
