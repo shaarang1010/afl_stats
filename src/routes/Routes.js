@@ -10,17 +10,15 @@ import Navbar from '../components/Menu/Navbar';
 
 
 const menuItems = [
-    { name: "Team", link: "/" },
+    { name: "Team", link: `/team` },
     { name: "Games", link: "/games" },
     { name: "Tips", link: "/tips" },
   ];
 
-let teamName = localStorage.getItem('team_name');
-
 const Routes = (props) =>{
     return(
         <div>
-            <Navbar menuItems={menuItems} team={teamName} />
+            <Navbar menuItems={menuItems} />
             <Switch>
                 <Route exact path='/team/:teamName/:id' component={(props)=> <TeamPage year='2021' {...props} /> } />
                 <Route exact path='/tips' component={(props)=> <TipsPage {...props} />} />

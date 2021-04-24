@@ -8,8 +8,7 @@ import axios from "axios";
 import { Grid, List, Image } from "semantic-ui-react";
 
 const TipsPage = (props) => {
-  const API_URL = process.env.REACT_APP_API_URL;
-
+ 
   const BASE_IMG_URL =
     process.env.REACT_APP_IMAGE_BASE_URL +
     "/wp-content/themes/squiggle/assets/images";
@@ -18,7 +17,10 @@ const TipsPage = (props) => {
 
   const favTeamID = Number(localStorage.getItem("team_id"));
 
+
   useEffect(() => {
+    const API_URL = process.env.REACT_APP_API_URL;
+
     axios
       .get(`${API_URL}/?q=tips;year=2021;source=1;complete=!100`)
       .then((res) => {
@@ -55,7 +57,14 @@ const TipsPage = (props) => {
                     }.jpg`}
                     avatar
                   />
-                  <span>{game.hteam} vs </span>
+                  <span>{game.hteam}</span>
+                  </List.Item>
+                  <List.Item>
+                      <span>
+                          VS
+                      </span>
+                  </List.Item>
+                  <List.Item>
                   <Image
                     src={`${BASE_IMG_URL}/${
                       game.ateam === "Western Bulldogs"
@@ -72,7 +81,10 @@ const TipsPage = (props) => {
                 </List.Item>
                 <List.Item>{`Venue - ${game.venue}`}</List.Item>
                 <List.Item>
-                  {`Tip - ${game.tip} by confidence ${game.confidence}%`}
+                  {`Tip - ${game.tip} `}
+                </List.Item>
+                <List.Item>
+                  {`By Confidence - ${game.confidence} %`}
                 </List.Item>
               </List>
             </CardComponent>

@@ -23,7 +23,9 @@ const TeamPage = (props) => {
     const BASE_URL = process.env.REACT_APP_API_URL;
     setTeamID(Number(params.id));
     localStorage.removeItem('team_id');
+    localStorage.removeItem('team_name');
     localStorage.setItem('team_id', params.id);
+    localStorage.setItem('team_name', params.teamName)
     setTeamName(params.teamName.replace("%20", " "));
     axios
       .get(`${BASE_URL}/?q=games;year=${props.year};complete=100`, {})
@@ -92,12 +94,6 @@ const TeamPage = (props) => {
         };
       })
     : null;
-
-  const menuItems = [
-    { name: "Home", link: "/" },
-    { name: "Games", link: "/games" },
-    { name: "Tips", link: "/tips" },
-  ];
 
   return (
     <HOC>
