@@ -20,17 +20,16 @@ const TipsPage = (props) => {
 
   useEffect(() => {
     const API_URL = process.env.REACT_APP_API_URL;
-
+    let favTeam = favTeamID;
     axios
       .get(`${API_URL}/?q=tips;year=2021;source=1;complete=!100`)
       .then((res) => {
         let tipsData = res.data.tips;
         setTips(
           tipsData.filter(
-            (team) => team.ateamid === favTeamID || team.hteamid === favTeamID
+            (team) => team.ateamid === favTeam || team.hteamid === favTeam
           )
         );
-        console.log(favTeamID);
       });
   }, [tips]);
 

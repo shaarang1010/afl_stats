@@ -10,9 +10,9 @@ import Navbar from '../components/Menu/Navbar';
 
 
 const menuItems = [
-    { name: "Team", link: `/team` },
-    { name: "Games", link: "/games" },
-    { name: "Tips", link: "/tips" },
+    { name: "Team", link: `/team`, key: 'Item1' },
+    { name: "Games", link: "/games", key: 'Item2' },
+    { name: "Tips", link: "/tips", key: 'Item3' },
   ];
 
 const Routes = (props) =>{

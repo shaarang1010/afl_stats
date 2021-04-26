@@ -19,6 +19,7 @@ const TeamPage = (props) => {
   useEffect(() => {
     const {
       match: { params },
+      year
     } = props;
     const BASE_URL = process.env.REACT_APP_API_URL;
     setTeamID(Number(params.id));
@@ -28,7 +29,7 @@ const TeamPage = (props) => {
     localStorage.setItem('team_name', params.teamName)
     setTeamName(params.teamName.replace("%20", " "));
     axios
-      .get(`${BASE_URL}/?q=games;year=${props.year};complete=100`, {})
+      .get(`${BASE_URL}/?q=games;year=${year};complete=100`, {})
       .then((res) => {
         let allCompletedGames = res.data.games;
         let teamGames = allCompletedGames.filter(

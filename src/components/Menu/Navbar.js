@@ -6,7 +6,7 @@ const Navbar = (props) => {
   const [activeItem, setActiveItem] = useState("Home");
 
   const handleItemClick = (e, { name }) => setActiveItem(name);
-  
+
   return (
     <Container fluid>
     <Segment inverted>
@@ -18,6 +18,7 @@ const Navbar = (props) => {
                   as={Link}
                   to={item.link}
                   name={item.name}
+                  key={item.key}
                   active={activeItem === item.name}
                   onClick={handleItemClick}
                 />
