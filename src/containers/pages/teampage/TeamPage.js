@@ -5,6 +5,8 @@ import { Grid, Image, Icon, Header } from "semantic-ui-react";
 
 import TableComponent from "../../../components/Table/Table";
 
+import { useSelector } from 'react-redux';
+
 const TeamPage = (props) => {
   const BASE_IMG_URL =
     process.env.REACT_APP_IMAGE_BASE_URL +
@@ -16,18 +18,26 @@ const TeamPage = (props) => {
 
   const [games, setGames] = useState(null);
 
+  const teamId = useSelector( state => state.teamId );
+
+  const teamname = useSelector( state => state.teamName);
+
+
+
+
+
   useEffect(() => {
     const {
       match: { params },
       year
     } = props;
     const BASE_URL = process.env.REACT_APP_API_URL;
-    setTeamID(Number(params.id));
-    localStorage.removeItem('team_id');
-    localStorage.removeItem('team_name');
-    localStorage.setItem('team_id', params.id);
-    localStorage.setItem('team_name', params.teamName)
-    setTeamName(params.teamName.replace("%20", " "));
+    setTeamID(Number(teamId));
+    //localStorage.removeItem('team_id');
+    //localStorage.removeItem('team_name');
+    //localStorage.setItem('team_id', params.id);
+    //localStorage.setItem('team_name', params.teamName)
+    setTeamName(teamname);
     axios
       .get(`${BASE_URL}/?q=games;year=${year};complete=100`, {})
       .then((res) => {
