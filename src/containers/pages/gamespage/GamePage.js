@@ -7,7 +7,7 @@ import TableComponent from "../../../components/Table/Table";
 
 import { useSelector } from 'react-redux';
 
-const TeamPage = (props) => {
+const GamePage = (props) => {
   const BASE_IMG_URL =
     process.env.REACT_APP_IMAGE_BASE_URL +
     "/wp-content/themes/squiggle/assets/images";
@@ -118,4 +118,4 @@ const TeamPage = (props) => {
   );
 };
 
-export default TeamPage;
+export default GamePage;

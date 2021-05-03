@@ -18,6 +18,7 @@ const gamesReducer = (state = initState, action) =>{
         default:
             break;
     }
+    return state;
 }
 
 export default gamesReducer;

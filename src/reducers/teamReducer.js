@@ -9,9 +9,9 @@ const teamReducer = (state = initState, action) =>{
         case 'ADD_TEAM':
             return({
                 ...state,
-                teamId: action.payload.team.teamId,
-                teamName: action.payload.team.teamName,
-                teamCrest: action.payload.team.teamCrest
+                teamId: action.payload.id,
+                teamName: action.payload.name,
+                teamCrest: action.payload.logo
             })
         case 'DELETE_TEAM':
             return({
@@ -23,13 +23,14 @@ const teamReducer = (state = initState, action) =>{
         case 'UPDATE_TEAM':
             return({
                 ...state,
-                teamId: action.payload.team.teamId,
-                teamName: action.payload.team.teamName,
-                teamCrest: action.payload.team.teamCrest
+                teamId: action.payload.id,
+                teamName: action.payload.name,
+                teamCrest: action.payload.logo
             })
         default:
             break;
     }
+    return state;
 }
 
 export default teamReducer;

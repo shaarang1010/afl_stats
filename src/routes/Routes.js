@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router';
 import Homepage from '../containers/pages/homepage/Homepage';
 import TeamPage from '../containers/pages/teampage/TeamPage';
 import TipsPage from '../containers/pages/tips/TipsPage';
+import GamePage from '../containers/pages/gamespage/GamePage';
 
 import Navbar from '../components/Menu/Navbar';
 
@@ -20,8 +21,9 @@ const Routes = (props) =>{
         <div>
             <Navbar menuItems={menuItems} />
             <Switch>
-                <Route exact path='/team/:teamName/:id' component={(props)=> <TeamPage year='2021' {...props} /> } />
+                <Route exact path='/team' component={(props)=> <TeamPage year='2021' {...props} /> } />
                 <Route exact path='/tips' component={(props)=> <TipsPage {...props} />} />
+                <Route exact path='/games' component={(props) => <GamePage {...props} />} />
                 <Route exact path='/' component={Homepage} />
             </Switch>
         </div>

@@ -54,7 +54,7 @@ const Homepage = (props) => {
                       size="tiny"
                       key={team.id}
                       rounded={true}
-                      onClick={addTeam(team)}
+                      onClick={()=> addTeam(team)}
                     />
                   </Link>
                 }

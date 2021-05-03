@@ -7,6 +7,8 @@ import Hoc from "../../hoc/Hoc";
 import axios from "axios";
 import { Grid, List, Image } from "semantic-ui-react";
 
+import { useSelector } from 'react-redux';
+
 const TipsPage = (props) => {
  
   const BASE_IMG_URL =
@@ -15,7 +17,7 @@ const TipsPage = (props) => {
 
   const [tips, setTips] = useState(null);
 
-  const favTeamID = Number(localStorage.getItem("team_id"));
+  const favTeamID = useSelector(state => state.team.teamId );
 
 
   useEffect(() => {
