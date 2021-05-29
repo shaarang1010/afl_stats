@@ -5,7 +5,7 @@ import CardComponent from "../../../components/Card/Card";
 import Hoc from "../../hoc/Hoc";
 
 import axios from "axios";
-import { Grid, List, Image } from "semantic-ui-react";
+import { Grid, List, Image, Card } from "semantic-ui-react";
 
 import { useSelector } from 'react-redux';
 
@@ -36,13 +36,14 @@ const TipsPage = (props) => {
   }, [tips]);
 
   let favTeamTips = tips
-    ? tips.map((game) => {
+    ? tips.map((game, index) => {
         return (
-          <Grid.Column width={4}>
+          <Card.Group>
             <CardComponent
               header={` Round ${game.round}`}
               meta={game.hteamid === favTeamID ? "Home Game" : "Away Game"}
               extra={game.date}
+              key={index}
             >
               <List>
                 <List.Item>
@@ -89,7 +90,7 @@ const TipsPage = (props) => {
                 </List.Item>
               </List>
             </CardComponent>
-          </Grid.Column>
+          </Card.Group>
         );
       })
     : null;

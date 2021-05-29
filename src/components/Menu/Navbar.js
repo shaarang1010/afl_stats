@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-import { Menu, Segment, Button, Container } from "semantic-ui-react";
+import { Image, Menu, Segment, Button, Container } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+
+import { useSelector } from 'react-redux';
 
 const Navbar = (props) => {
   const [activeItem, setActiveItem] = useState("Home");
 
   const handleItemClick = (e, { name }) => setActiveItem(name);
+
+  const teamLogo = useSelector(state => state.team.teamCrest);
+
+  const teamName = useSelector(state => state.team.teamName);
 
   return (
     <Container fluid>
@@ -27,10 +33,11 @@ const Navbar = (props) => {
           : null}
         <Menu.Menu position="right">
           <Menu.Item>
-            <Button inverted >
-              <Link to='/'>
-               Change team
-              </Link>
+            <Button basic color='grey'>
+            <Link to='/' style={{color: "white"}}>
+              <Image src={`${process.env.REACT_APP_IMAGE_BASE_URL + teamLogo}`} avatar/>
+               {teamName}
+               </Link>
             </Button>
           </Menu.Item>
         </Menu.Menu>
@@ -39,5 +46,7 @@ const Navbar = (props) => {
     </Container>
   );
 };
+
+
 
 export default Navbar;

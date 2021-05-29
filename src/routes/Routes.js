@@ -21,7 +21,7 @@ const Routes = (props) =>{
         <div>
             <Navbar menuItems={menuItems} />
             <Switch>
-                <Route exact path='/team' component={(props)=> <TeamPage year='2021' {...props} /> } />
+                <Route exact path='/team' component={TeamPage} />
                 <Route exact path='/tips' component={(props)=> <TipsPage {...props} />} />
                 <Route exact path='/games' component={(props) => <GamePage {...props} />} />
                 <Route exact path='/' component={Homepage} />

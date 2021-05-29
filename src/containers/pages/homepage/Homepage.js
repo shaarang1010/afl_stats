@@ -47,7 +47,7 @@ const Homepage = (props) => {
                 key={team.name}
                 header={team.name}
                 trigger={
-                  <Link to={`/team/${team.name}/${team.id}`}>
+                  <Link to={`/team`}>
                     <Image
                       as="a"
                       src={`${BASE_URL}` + team.logo}

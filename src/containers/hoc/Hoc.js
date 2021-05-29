@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { Container } from 'semantic-ui-react';
+
 const HOC = (props) => (
-    <div>
+    <Container>
         {props.children}
-    </div>
+    </Container>
 )
 
 export default HOC;
